@@ -1,0 +1,12 @@
+AngularFrontEnd/[Nn]ode_modules/
+REST/[Nn]ode_modules/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+
+
+# Visual Studio cache directory
+.vs/
+
+

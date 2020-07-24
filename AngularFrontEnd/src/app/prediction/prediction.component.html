@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Studentcenter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.slim.js"
+  integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+  crossorigin="anonymous"></script>
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+  <div class="limiter">
+  		<div class="container-login100">
+  			<div class="wrap-login100" style="padding-bottom:120px;">
+
+
+  				<form class="login100-form validate-form">
+  					<span class="login100-form-title">
+  						Check Your Chances of Acceptance
+  					</span>
+
+  					<div class="wrap-input100 validate-input">
+  						<input class="input100" type="text" name="cgpa" placeholder="Enter CGPA" [(ngModel)]="cgpa">
+  						<span class="focus-input100"></span>
+  						<span class="symbol-input100">
+  							<i class="fa fa-pencil" aria-hidden="true"></i>
+  						</span>
+  					</div>
+
+  					<div class="wrap-input100 validate-input" >
+  						<input class="input100" type="text" name="tofel" placeholder="Enter TOEFL" [(ngModel)]="toefl">
+  						<span class="focus-input100"></span>
+  						<span class="symbol-input100">
+  							<i class="fa fa-pencil" aria-hidden="true"></i>
+  						</span>
+  					</div>
+
+            <div class="wrap-input100 validate-input"  >
+              <input class="input100" type="text" name="gre" placeholder="Enter Gre Scores" [(ngModel)]="gre">
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate = "Password is required">
+
+<div class="toggle_radio">
+<input type="radio" class="toggle_option" id="first_toggle" name="toggle_option"    [(ngModel)]="research"  value="1"   >
+<input type="radio" class="toggle_option" id="second_toggle" name="toggle_option"  [(ngModel)]="research" value="0" >
+<label for="first_toggle"><p>Research Work</p></label>
+<label for="second_toggle"><p>No Research</p></label>
+<div class="toggle_option_slider">
+</div>
+</div>
+
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+
+              </span>
+            </div>
+
+            <div class="wrap-input100 validate-input" >
+              <select   name="uni"  [(ngModel)]="uni"   >
+
+                    <option  value=""  >Select University </option>
+                  <option  value="1">Stanford University </option>
+                  <option  value="1">Massachusetts Institute of Technology </option>
+                  <option  value="1">Princeton University </option>
+                  <option  value="2">Harvard University </option>
+                  <option  value="2">Yale University </option>
+                  <option  value="2">University of California, Berkeley </option>
+                  <option  value="3">University of Washington </option>
+                  <option  value="3">Georgia Institute of Technology</option>
+                  <option  value="4">Brown University </option>
+                  <option  value="4">Ohio State University (Main campus) </option>
+                  <option  value="5">University of Arizona </option>
+                  <option  value="4">University of Virginia (Main campus)</option>
+                  <option  value="4">Rutgers, the State University of New Jersey </option>
+
+              </select>
+
+              <span class="focus-input100"></span>
+              <span class="symbol-input100">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </span>
+            </div>
+
+  					<div class="container-login100-form-btn">
+  						<button class="login100-form-btn" (click)="predict()">
+  							Get
+  						</button>
+  					</div>
+
+
+  				</form>
+
+          <div class="login100-pic js-tilt" style="padding-top: 50px;">
+          <h4>{{reslt}}</h4>
+
+          </div>
+
+  			</div>
+  		</div>
+  	</div>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<html>
+<head>
+
+    <title>Studentcenter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.slim.js"
+  integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+  crossorigin="anonymous"></script>
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<script type="text/javascript">
+
+
+
+(function ($) {
+    "use strict";
+
+    var input = $('.validate-input .input100');
+
+    $('.validate-form').on('submit',function(){
+        var check = true;
+
+        for(var i=0; i<input.length; i++) {
+            if(validate(input[i]) == false){
+                showValidate(input[i]);
+                check=false;
+            }
+        }
+
+        return check;
+    });
+
+
+    $('.validate-form .input100').each(function(){
+        $(this).focus(function(){
+           hideValidate(this);
+        });
+    });
+
+    function validate (input) {
+        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+                return false;
+            }
+        }
+        else {
+            if($(input).val().trim() == ''){
+                return false;
+            }
+        }
+    }
+
+    function showValidate(input) {
+        var thisAlert = $(input).parent();
+
+        $(thisAlert).addClass('alert-validate');
+    }
+
+    function hideValidate(input) {
+        var thisAlert = $(input).parent();
+
+        $(thisAlert).removeClass('alert-validate');
+    }
+
+
+
+})(jQuery);
+
+</script>
+
+
+</head>
+
+<body>
+
+<app-nav></app-nav>
+
+  <div class="limiter">
+      <div class="container-login100">
+
+
+        <div class="col-md-12">
+           <form action="/results" method="post">
+               <div class="form-group ad-30" style="margin-top:10em; margin-bottom:10em">
+                    <div class="input-group search-style">
+                        <input class="form-control new-search-bar"  name="country" id="search" placeholder="Enter Your Uni Name" type="text">
+                        <span class="input-group-btn">
+                            <button class="btn input-btn" type="" id="search-form">Search</button>
+                        </span>
+                    </div>
+                </div>
+           </form>
+        </div>
+
+  			<div class="wrap-login100 row">
+
+          <div class="col-md-3">
+              <div class="row">
+
+
+                  <div class="col-md-12">
+                      <div class="filter-container">
+                          <div class="card">
+                              <form action="/results" method="post">
+                                  <div class="content">
+                                      <h3 class="filter">
+                                          FILTER
+                                      </h3>
+                                      <hr/>
+
+
+                                      <select class="form-control" name="country" id="country"   >
+                                          <option value="">Filter By Country</option>
+                                          <option *ngFor ="let cntr of cntrs" value="{{cntr._id}}"> {{cntr._id}}</option>
+                                      </select>
+
+                                      <div class="clearfix"></div>
+                                      <button class="btn add-apply">Apply</button>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+
+
+
+
+
+              </div>
+          </div>
+
+
+
+<div class="col">
+                  <div class= "row" *ngFor ="let chunk of chunks">
+
+
+                    <div class="item col-md-4" *ngFor ="let i of chunk">
+
+                        <div class="thumbnail">
+                           <img src="../assets/files/{{i.image}}" alt="">
+                            <div class="caption">
+                                <h4>
+                                     {{i.name }} ({{i.fans.length}})
+                                </h4>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <p>
+                                          {{i.country}}
+                                        </p>
+                                    </div>
+
+
+                                </div>
+                                <div class="row">
+                                    <!-- <input type="" name="id" id="id" value="{{i._id}}  ">
+                                    <input type="" name="UniName" id="UniName" value=" {{i.name}} "> -->
+                                    <div class="col">
+                                      <button class="btn add-fav">
+                                          Add To Favorite
+                                      </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+                                      </div>
+
+                                      </div>
+
+  			</div>
+  		</div>
+  	</div>
+
+
+
+
+
+
+</body>
+</html>
