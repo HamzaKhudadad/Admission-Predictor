@@ -30,7 +30,7 @@
     "forever": "^1.0.0",
     "formidable": "^1.2.1",
     "helmet": "^3.21.2",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "ml-regression": "^5.0.0",
     "mongoose": "^5.7.5",
     "multer": "^1.4.1",
